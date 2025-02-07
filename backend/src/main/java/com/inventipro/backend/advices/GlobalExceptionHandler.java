@@ -25,7 +25,7 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(NoSuchResourceException.class)
     public ResponseEntity<ApiResponse<?>> exception(NoSuchResourceException e) {
         ApiError error = ApiError.builder()
-                .message("No Such Resource Found")
+                .message(e.getMessage())
                 .status(HttpStatus.NOT_FOUND)
                 .build();
 
